@@ -30,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tocouBotao(View view){
+        jogador1.setScaleX(-1f);
+        switch (view.getId()) {
+            case(R.id.botaoPedra):
+                jogador1.setImageResource(R.drawable.pedra);
+                break;
+            case(R.id.botaoPapel):
+                jogador1.setImageResource(R.drawable.papel);
+                break;
+            case(R.id.botaoTesoura):
+                jogador1.setImageResource(R.drawable.tesoura);
+                break;
+        }
 
     }
 }
