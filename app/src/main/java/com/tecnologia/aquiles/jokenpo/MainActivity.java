@@ -1,5 +1,6 @@
 package com.tecnologia.aquiles.jokenpo;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,10 +27,14 @@ public class MainActivity extends AppCompatActivity {
     int jogada1 = 0;
     int jogada2 = 0;
 
+    MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.alex_play);
 
         jogador1 = findViewById(R.id.jogador1);
         jogador2 = findViewById(R.id.jodagor2);
@@ -83,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tocouBotao(View view){
+        tocaSom();
         jogador1.setScaleX(-1f);
         switch (view.getId()) {
             case(R.id.botaoPedra):
@@ -131,6 +137,12 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Perdi", Toast.LENGTH_LONG).show();
             }
+        }
+    }
+
+    public void tocaSom() {
+        if(mediaPlayer != null) {
+            mediaPlayer.start();
         }
     }
 }
