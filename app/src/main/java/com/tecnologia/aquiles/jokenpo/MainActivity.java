@@ -145,4 +145,12 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.start();
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        if(mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
+        super.onDestroy();
+    }
 }
