@@ -7,6 +7,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -122,6 +123,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void verificaJogada() {
-
+        if(jogada1 == jogada2) {
+            Toast.makeText(this, "Empate", Toast.LENGTH_LONG).show();
+        } else {
+            if((jogada1 == 1 && jogada2 == 3) || (jogada1 == 2 && jogada2 == 1) || (jogada1 == 3 && jogada2 == 2)){
+                Toast.makeText(this, "Ganhei", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Perdi", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
